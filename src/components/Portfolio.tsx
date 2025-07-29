@@ -256,7 +256,7 @@ const Portfolio = () => {
               
               <div className="flex items-center space-x-6">
                 <a
-                  href="https://github.com/Ujjvalbaijal"
+                  href="https://github.com/Ujjval-1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
@@ -265,7 +265,7 @@ const Portfolio = () => {
                   <span>GitHub</span>
                 </a>
                 <a
-                  href="https://linkedin.com/in/ujjvalbaijal"
+                  href="https://www.linkedin.com/in/ujjval-baijal/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
@@ -608,13 +608,17 @@ const Portfolio = () => {
               </div>
               
               <div className="flex space-x-4 mt-8">
-                <Button variant="outline" size="lg" className="flex items-center space-x-2">
-                  <Github size={20} />
-                  <span>GitHub</span>
+                <Button variant="outline" size="lg" className="flex items-center space-x-2" asChild>
+                  <a href="https://github.com/Ujjval-1" target="_blank" rel="noopener noreferrer">
+                    <Github size={20} />
+                    <span>GitHub</span>
+                  </a>
                 </Button>
-                <Button variant="outline" size="lg" className="flex items-center space-x-2">
-                  <Linkedin size={20} />
-                  <span>LinkedIn</span>
+                <Button variant="outline" size="lg" className="flex items-center space-x-2" asChild>
+                  <a href="https://www.linkedin.com/in/ujjval-baijal/" target="_blank" rel="noopener noreferrer">
+                    <Linkedin size={20} />
+                    <span>LinkedIn</span>
+                  </a>
                 </Button>
               </div>
             </div>
@@ -636,7 +640,7 @@ const Portfolio = () => {
             </p>
             <div className="flex justify-center space-x-6">
               <a
-                href="https://github.com/Ujjvalbaijal"
+                href="https://github.com/Ujjval-1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -644,7 +648,7 @@ const Portfolio = () => {
                 <Github size={24} />
               </a>
               <a
-                href="https://linkedin.com/in/ujjvalbaijal"
+                href="https://www.linkedin.com/in/ujjval-baijal/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
