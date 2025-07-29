@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Moon, Sun, Download, Github, Linkedin, Mail, Phone, ExternalLink, Calendar, MapPin, Award, Code, Briefcase, GraduationCap, User, MessageCircle } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, Phone, ExternalLink, Calendar, MapPin, Award, Code, Briefcase, GraduationCap, User, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -7,18 +7,7 @@ import { ContactForm } from '@/components/ContactForm';
 import portfolioImg from '@/assets/portfolio-img.jpg';
 
 const Portfolio = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,11 +50,6 @@ const Portfolio = () => {
     return () => observer.disconnect();
   }, []);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', !darkMode ? 'dark' : 'light');
-  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -132,7 +116,7 @@ const Portfolio = () => {
         'CSV + API scraping and enrichment'
       ],
       color: 'bg-blue-500',
-      liveDemo: 'stackoverflow-tags.netlify.app'
+      liveDemo: 'https://stackoverflow-tagstrends-ujjvalbaijal.netlify.app/'
     },
     {
       title: 'Portfolio Project',
@@ -140,7 +124,7 @@ const Portfolio = () => {
       description: 'Professional portfolio website with contact form integration using EmailJS.',
       tech: ['React', 'TypeScript', 'Tailwind CSS', 'EmailJS'],
       features: [
-        'Responsive design with dark/light mode',
+        'Responsive design with modern styling',
         'Smooth scrolling navigation',
         'Contact form with email integration',
         'Modern animations and effects'
@@ -210,18 +194,19 @@ const Portfolio = () => {
             </div>
 
             <div className="flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleDarkMode}
-                className="rounded-full"
+              <Button 
+                variant="default" 
+                className="hidden sm:flex items-center space-x-2"
+                asChild
               >
-                {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </Button>
-              
-              <Button variant="default" className="hidden sm:flex items-center space-x-2">
-                <Download size={16} />
-                <span>Resume</span>
+                <a 
+                  href="https://drive.google.com/file/d/17eheEShzde29E4qg25_n1IEttct4ZiyY/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Download size={16} />
+                  <span>Resume</span>
+                </a>
               </Button>
             </div>
           </div>
@@ -244,9 +229,20 @@ const Portfolio = () => {
                   <Mail size={20} />
                   <span>Get In Touch</span>
                 </Button>
-                <Button variant="outline" size="lg" className="flex items-center space-x-2">
-                  <Download size={20} />
-                  <span>Download CV</span>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="flex items-center space-x-2"
+                  asChild
+                >
+                  <a 
+                    href="https://drive.google.com/file/d/17eheEShzde29E4qg25_n1IEttct4ZiyY/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download size={20} />
+                    <span>Download CV</span>
+                  </a>
                 </Button>
               </div>
               
@@ -477,15 +473,19 @@ const Portfolio = () => {
                     {(project.link || project.liveDemo) && (
                       <div className="flex space-x-4">
                         {project.link && (
-                          <Button variant="outline" size="sm" className="flex items-center space-x-2">
-                            <ExternalLink size={16} />
-                            <span>View Report</span>
+                          <Button variant="outline" size="sm" className="flex items-center space-x-2" asChild>
+                            <a href="https://drive.google.com/file/d/1Pn6NtpMXIADtOgj3NbM4i30wHDBXbKza/view" target="_blank" rel="noopener noreferrer">
+                              <ExternalLink size={16} />
+                              <span>View Report</span>
+                            </a>
                           </Button>
                         )}
                         {project.liveDemo && (
-                          <Button variant="default" size="sm" className="flex items-center space-x-2">
-                            <ExternalLink size={16} />
-                            <span>Live Demo</span>
+                          <Button variant="default" size="sm" className="flex items-center space-x-2" asChild>
+                            <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink size={16} />
+                              <span>Live Demo</span>
+                            </a>
                           </Button>
                         )}
                       </div>
