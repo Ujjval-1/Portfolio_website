@@ -143,17 +143,20 @@ const Portfolio = () => {
     {
       title: 'Data Analytics Virtual Internship',
       issuer: 'Deloitte Australia',
-      verified: true
+      verified: true,
+      link: 'https://drive.google.com/file/d/1v_8lvRhIo-xkCsDdh7oTOoVdR267giZf'
     },
     {
       title: 'TATA Data Analytics Certification',
       issuer: 'TATA',
-      verified: true
+      verified: true,
+      link: 'https://drive.google.com/file/d/1VxfgyA2G-0QyzqOK5jtAVZOmIhO1T6It'
     },
     {
       title: 'Introduction to Generative AI',
       issuer: 'Google Cloud',
-      verified: true
+      verified: true,
+      link: 'https://drive.google.com/file/d/1BETqMxP4SM_Orn-475kMDcQk55vPKzjq'
     }
   ];
 
@@ -222,10 +225,15 @@ const Portfolio = () => {
                 Hi, I'm <span className="gradient-text">Ujjval Baijal</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                Computer Science Student passionate about Web Development, Data Analysis, and AI
+                Computer Science Student | AI & ML Enthusiast | Turning Data into Insightful Solutions
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
-                <Button variant="default" size="lg" className="flex items-center space-x-2">
+                <Button 
+                  variant="default" 
+                  size="lg" 
+                  className="flex items-center space-x-2"
+                  onClick={() => scrollToSection('contact')}
+                >
                   <Mail size={20} />
                   <span>Get In Touch</span>
                 </Button>
@@ -281,9 +289,6 @@ const Portfolio = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center shadow-medium">
-                  <Code size={32} className="text-white" />
-                </div>
               </div>
             </div>
           </div>
@@ -302,7 +307,7 @@ const Portfolio = () => {
             {[
               {
                 degree: 'B.Tech in Computer Science',
-                institution: 'Sitare University, Indore',
+                institution: 'Sitare University, Lucknow, India',
                 period: 'Aug 2024 – Present',
                 grade: 'CGPA: 7.63',
                 icon: GraduationCap
@@ -520,11 +525,18 @@ const Portfolio = () => {
                       {cert.description && (
                         <p className="text-sm text-muted-foreground mb-3">{cert.description}</p>
                       )}
-                      <div className="flex items-center space-x-2">
-                        <Badge variant="default" className="text-xs">
-                          ✅ Verified Certificate
-                        </Badge>
-                      </div>
+                  <div className="flex items-center space-x-2">
+                    <Badge variant="default" className="text-xs">
+                      ✅ Verified Certificate
+                    </Badge>
+                    {cert.link && (
+                      <Button variant="outline" size="sm" asChild>
+                        <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink size={14} />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
                     </div>
                   </div>
                 </CardContent>
@@ -590,7 +602,7 @@ const Portfolio = () => {
                   </div>
                   <div>
                     <p className="font-medium">Location</p>
-                    <p className="text-muted-foreground">Indore, India</p>
+                    <p className="text-muted-foreground">Lucknow, India</p>
                   </div>
                 </div>
               </div>
