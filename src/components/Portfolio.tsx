@@ -365,14 +365,26 @@ const Portfolio = () => {
               {
                 title: 'Summer AI Intern',
                 company: 'Mirai School of Technology',
-                period: 'June 2025 – August 2025',
-                type: 'Internship'
+                period: 'June 2025 – Aug 2025',
+                type: 'Internship',
+                description: [
+                  'Gained hands-on experience with AI and automation tools, including ElevenLabs, Lovable AI, Napkin AI, Zapier, and n8n.',
+                  'Developed a portfolio website using Lovable AI, added EmailJS to enable users to send emails through the site.',
+                  'Built an AI travel planner website, automated workflows with n8n, Gemini AI, and Google Sheets, and sent personalized itineraries by email.'
+                ],
+                certificateLink: 'https://ujjval-builds.lovable.app/'
               },
               {
-                title: 'Virtual AI & Cloud Intern',
-                company: 'IBM SkillsBuild',
-                period: 'July 2025 – August 2025',
-                type: 'Virtual Internship'
+                title: 'AI & Cloud Intern',
+                company: 'IBM SkillsBuild (via AICTE & Edunet Foundation)',
+                period: 'July 2025 – Aug 2025',
+                type: 'Internship',
+                description: [
+                  'Built and deployed Fitness Buddy Agent – a virtual assistant for personalized fitness guidance.',
+                  'Worked with IBM Watsonx.ai, Granite LLM, Runtime, and Agentic AI Builder.',
+                  'Earned certifications in Cloud and AI including: Journey to Cloud, Getting Started with AI, and RAG with LangChain.'
+                ],
+                certificateLink: 'https://drive.google.com/file/d/1WR21pQ329I1ECjdIBCZs_RPysoN3Eze5/view?usp=sharing'
               }
             ].map((exp, index) => (
               <Card key={index} className="fade-in hover-lift">
@@ -382,17 +394,41 @@ const Portfolio = () => {
                       <Briefcase className="text-primary" size={24} />
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-start justify-between mb-4">
                         <div>
                           <h3 className="font-semibold text-lg">{exp.title}</h3>
                           <p className="text-muted-foreground">{exp.company}</p>
                         </div>
                         <Badge variant="outline">{exp.type}</Badge>
                       </div>
-                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                      <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-4">
                         <Calendar size={16} />
                         <span>{exp.period}</span>
                       </div>
+                      
+                      {/* Description bullets */}
+                      <div className="space-y-2 mb-4">
+                        {exp.description.map((point, i) => (
+                          <div key={i} className="flex items-start space-x-2">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                            <p className="text-sm text-muted-foreground">{point}</p>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Certificate link */}
+                      {exp.certificateLink && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex items-center space-x-2"
+                          onClick={() => window.open(exp.certificateLink, '_blank')}
+                        >
+                          <Award size={16} />
+                          <span>View Certificate</span>
+                          <ExternalLink size={14} />
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </CardContent>
