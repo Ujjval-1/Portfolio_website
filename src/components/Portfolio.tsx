@@ -372,7 +372,7 @@ const Portfolio = () => {
                   'Developed a portfolio website using Lovable AI, added EmailJS to enable users to send emails through the site.',
                   'Built an AI travel planner website, automated workflows with n8n, Gemini AI, and Google Sheets, and sent personalized itineraries by email.'
                 ],
-                certificateLink: 'https://ujjval-builds.lovable.app/'
+                certificateLink: 'https://drive.google.com/file/d/1jbEQBLcXULAa6DLDqOTJF6mLvGAl5C1_/view?usp=sharing'
               },
               {
                 title: 'AI & Cloud Intern',
